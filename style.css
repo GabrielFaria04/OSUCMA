@@ -1,4 +1,4 @@
-/* 1. CONFIGURACIÓN BÁSICA */
+/* 1. CONFIGURACIÓN GENERAL */
 * {
     margin: 0;
     padding: 0;
@@ -6,110 +6,155 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    color: #333;
+    font-family: 'Montserrat', sans-serif; /* Más moderna */
+    color: #444;
     line-height: 1.6;
+    background-color: #f9f9f9;
 }
 
-/* 2. BARRA SUPERIOR (La franja oscura de arriba) */
+/* 2. BARRA SUPERIOR */
 .top-bar {
-    background-color: #003366; /* Azul oscuro institucional */
-    color: white;
-    padding: 10px 5%;
+    background-color: #f1f1f1;
+    color: #555;
+    padding: 8px 10%;
     display: flex;
     justify-content: space-between;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    border-bottom: 1px solid #ddd;
 }
 
-/* 3. MENÚ DE NAVEGACIÓN */
+.top-links a {
+    text-decoration: none;
+    color: #555;
+    margin: 0 5px;
+}
+
+/* 3. NAVEGACIÓN */
 header nav {
     background-color: white;
-    padding: 15px 5%;
-    display: flex; /* Pone el logo y menú en la misma línea */
+    padding: 20px 10%;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra suave abajo */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #003366;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #007bff; /* Un azul más vivo */
+    letter-spacing: -1px;
 }
 
 header ul {
     list-style: none;
-    display: flex; /* Pone los enlaces uno al lado del otro */
-    gap: 20px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
 }
 
 header a {
     text-decoration: none;
     color: #333;
-    font-weight: 500;
-    transition: color 0.3s;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
 }
 
-header a:hover {
-    color: #003366; /* Cambia de color al pasar el mouse */
-}
-
-/* Botón de Donar destacado */
 .btn-donar {
-    background-color: #e63946; /* Rojo/Naranja llamativo */
+    background-color: #007bff;
     color: white !important;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
+    padding: 12px 25px;
+    border-radius: 50px; /* Bordes redondeados como el ejemplo */
+    transition: 0.3s;
 }
 
 .btn-donar:hover {
-    background-color: #c92a36;
+    background-color: #0056b3;
 }
 
-/* 4. SECCIÓN PRINCIPAL (HERO) */
+/* 4. HERO SECTION */
 .hero {
-    height: 80vh; /* Ocupa el 80% de la altura de la pantalla */
-    background: linear-gradient(rgba(0,51,102,0.7), rgba(0,51,102,0.7)), 
-                url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-    /* La imagen de fondo viene de un banco de imágenes gratuito, luego pondremos la tuya */
+    height: 70vh;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                url('https://images.unsplash.com/photo-1524069290683-0457abfe42c3?auto=format&fit=crop&w=1350&q=80');
     background-size: cover;
     background-position: center;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    text-align: center;
+    justify-content: flex-start;
+    padding: 0 10%;
     color: white;
-    padding: 20px;
+}
+
+.hero-content {
+    max-width: 600px;
+    text-align: left;
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
+    line-height: 1.1;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
-.hero button {
-    background-color: #e63946;
-    color: white;
-    border: none;
+.hero-btns {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.btn-primary, .btn-secondary {
     padding: 15px 30px;
-    font-size: 1.2rem;
+    border-radius: 50px;
+    border: none;
+    font-weight: bold;
     cursor: pointer;
-    border-radius: 5px;
-    transition: transform 0.2s;
+    font-size: 1rem;
 }
 
-.hero button:hover {
-    transform: scale(1.05); /* Crece un poquito al pasar el mouse */
+.btn-primary { background-color: #007bff; color: white; }
+.btn-secondary { background-color: white; color: #007bff; }
+
+/* 5. SECCIÓN DE TARJETAS (FEATURES) */
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px 10%;
+    margin-top: -50px; /* Hace que las tarjetas "floten" sobre el hero */
 }
 
-/* 5. PIE DE PÁGINA */
-footer {
-    background-color: #333;
-    color: white;
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    flex: 1;
     text-align: center;
-    padding: 20px;
-    margin-top: auto;
+    transition: transform 0.3s;
+}
+
+.card:hover { transform: translateY(-10px); }
+
+.card h3 { color: #007bff; margin-bottom: 15px; }
+
+.card a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+/* 6. FOOTER */
+footer {
+    background-color: #222;
+    color: #888;
+    text-align: center;
+    padding: 40px;
+    font-size: 0.9rem;
 }
